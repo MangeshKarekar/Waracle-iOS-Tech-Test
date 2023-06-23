@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		876F983C2A45F3B300F55FF2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F983B2A45F3B300F55FF2 /* Network.swift */; };
 		876F98412A45F48800F55FF2 /* CakeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F98402A45F48800F55FF2 /* CakeListController.swift */; };
+		876F98622A461D6100F55FF2 /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F98612A461D6100F55FF2 /* UIImageView+Cache.swift */; };
 		CEF2DA7325B9B99D00DCAA34 /* CakeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2DA7225B9B99D00DCAA34 /* CakeTableViewCell.swift */; };
 		CEF6389B25B73FA7009F967A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6389A25B73FA7009F967A /* AppDelegate.swift */; };
 		CEF6389D25B73FA7009F967A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6389C25B73FA7009F967A /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		876F983B2A45F3B300F55FF2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		876F98402A45F48800F55FF2 /* CakeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CakeListController.swift; sourceTree = "<group>"; };
+		876F98612A461D6100F55FF2 /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
 		CEF2DA7225B9B99D00DCAA34 /* CakeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CakeTableViewCell.swift; sourceTree = "<group>"; };
 		CEF6389725B73FA7009F967A /* CakeItApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CakeItApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6389A25B73FA7009F967A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		876F98602A461D2F00F55FF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				876F98612A461D6100F55FF2 /* UIImageView+Cache.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CEF6388E25B73FA7009F967A = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 			children = (
 				CEF6389C25B73FA7009F967A /* SceneDelegate.swift */,
 				CEF6389A25B73FA7009F967A /* AppDelegate.swift */,
+				876F98602A461D2F00F55FF2 /* Extensions */,
 				876F983A2A45F2D400F55FF2 /* Network */,
 				876F98392A45F2C600F55FF2 /* Model */,
 				876F983D2A45F41900F55FF2 /* Controller */,
@@ -321,6 +332,7 @@
 				876F983C2A45F3B300F55FF2 /* Network.swift in Sources */,
 				CEF638D725B998C8009F967A /* CakeDetailViewController.swift in Sources */,
 				876F98412A45F48800F55FF2 /* CakeListController.swift in Sources */,
+				876F98622A461D6100F55FF2 /* UIImageView+Cache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,7 @@ class CakeListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var i = 0
-    var cakes: [Cake] = []
-
+    private var cakes: [Cake] = []
     private let controller = CakeListController()
     private let refreshControl = UIRefreshControl()
     private let cakeDetailssegue = "cakeDetailssegue"
@@ -22,7 +20,6 @@ class CakeListViewController: UIViewController {
         super.viewDidLoad()
         setup()
         fetchCakesList()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,18 +75,7 @@ extension CakeListViewController: UITableViewDataSource {
         let cake = cakes[indexPath.row]
         cell.titleLabel.text = cake.title
         cell.descLabel.text = cake.desc
-        
-        
-        
-        
-        let imageURL = URL(string: cake.image)!
-        
-        guard let imageData = try? Data(contentsOf: imageURL) else { return cell }
-            
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-            cell.cakeImageView.image = image
-            }
+        cell.cakeImageView.setImage(for: cake.image)
         return cell
     }
 }

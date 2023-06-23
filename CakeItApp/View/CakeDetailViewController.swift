@@ -19,5 +19,8 @@ class CakeDetailViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = cake?.title
         descriptionLabel.text = cake?.desc
+        if let imageUrl = cake?.image {
+            cakeImageView.setImage(for: imageUrl)
+        }
     }
 }
