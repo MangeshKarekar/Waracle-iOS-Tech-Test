@@ -14,22 +14,39 @@ class CakeListViewController: UIViewController {
     var i = 0
     var cakes: [Cake] = []
 
+    private let controller = CakeListController()
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+        fetchCakesList()
+        
+    }
+    
+    private func setup() {
+        title = "🎂CakeItApp🍰"
         tableView.dataSource = self
         tableView.delegate = self
-        title = "🎂CakeItApp🍰"
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(fetchCakesList), for: .valueChanged)
+    }
+    
+    @objc private func fetchCakesList() {
         
-        let url = URL(string: "https://gist.githubusercontent.com/hart88/79a65d27f52cbb74db7df1d200c4212b/raw/ebf57198c7490e42581508f4f40da88b16d784ba/cakeList")!
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let decodedResponse = try? JSONDecoder().decode([Cake].self, from: data!) {
-                self.cakes = decodedResponse
-                self.tableView.reloadData()
-                return
-            }
-        }.resume()
+        controller.getCakeList {[weak self] cakes in // populate the table
+            self?.cakes = cakes
+            self?.reloadTable()
+        } onFailure: {[weak self] error in // empty the table
+            self?.cakes = []
+            self?.reloadTable()
+        }
+    }
+    
+    private func reloadTable() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 
