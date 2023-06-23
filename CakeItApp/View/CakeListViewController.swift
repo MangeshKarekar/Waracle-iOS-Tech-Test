@@ -16,12 +16,19 @@ class CakeListViewController: UIViewController {
 
     private let controller = CakeListController()
     private let refreshControl = UIRefreshControl()
+    private let cakeDetailssegue = "cakeDetailssegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         fetchCakesList()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == cakeDetailssegue {
+            (segue.destination as? CakeDetailViewController)?.cake = sender as? Cake
+        }
     }
     
     private func setup() {
@@ -46,14 +53,14 @@ class CakeListViewController: UIViewController {
     private func reloadTable() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
+            self?.refreshControl.endRefreshing()
         }
     }
 }
 
 extension CakeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        i = indexPath.row
-        performSegue(withIdentifier: "segue", sender: tableView)
+        performSegue(withIdentifier: cakeDetailssegue, sender: cakes[indexPath.row])
     }
     
 }

@@ -13,10 +13,11 @@ class CakeDetailViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
-
+    public var cake: Cake?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "cake title"
-        descriptionLabel.text = "cake description"        
+        titleLabel.text = cake?.title
+        descriptionLabel.text = cake?.desc
     }
 }

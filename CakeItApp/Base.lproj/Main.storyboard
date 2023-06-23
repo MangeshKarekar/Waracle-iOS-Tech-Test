@@ -78,7 +78,7 @@
                     <navigationItem key="navigationItem" id="2Sj-QC-2ah"/>
                     <connections>
                         <outlet property="tableView" destination="feW-cE-PbN" id="0cL-Of-xAj"/>
-                        <segue destination="DYd-WC-H7w" kind="show" identifier="segue" id="8wc-SG-cgt"/>
+                        <segue destination="DYd-WC-H7w" kind="show" identifier="cakeDetailssegue" id="8wc-SG-cgt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
