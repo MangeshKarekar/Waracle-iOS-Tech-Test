@@ -23,20 +23,22 @@ extension UIImageView {
             self.image = cachedImage
             
         } else {
-            
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        ImageStore.imageCache.setObject(image, forKey: urlToString)
-                        self?.image = image
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self?.image = nil
-                    }
+            fetchImage(for: url, cacheKey: urlToString)
+        }
+    }
+    
+    private func fetchImage(for url: URL, cacheKey: NSString) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    ImageStore.imageCache.setObject(image, forKey: cacheKey)
+                    self?.image = image
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self?.image = nil
                 }
             }
         }
     }
-    
 }
